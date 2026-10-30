@@ -1,0 +1,12 @@
+build/
+book-plan/logs/
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+__pycache__/

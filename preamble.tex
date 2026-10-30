@@ -1,0 +1,124 @@
+% =============================================================
+%  Preamble (book-agnostic).
+%  Loaded by main.tex after the document class and geometry.
+%  Writers reuse what is defined here. A truly new macro goes in
+%  the "Book-specific macros" block at the end and is recorded in
+%  book-plan/ledger.md.
+% =============================================================
+
+% ---------- Encoding, fonts, language ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+% The book language is set by the scaffold unit from
+% BOOK_INSTRUCTIONS.md (e.g. \usepackage[brazilian]{babel}).
+% Default: English, no babel.
+
+% ---------- Mathematics ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+% ---------- Graphics, tables, lists ----------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows.meta}
+
+% ---------- Bibliography (BibTeX + natbib; entries in references.bib) ----------
+\usepackage[numbers,sort&compress]{natbib}
+
+% ---------- Code listings ----------
+% The ONLY code mechanism of the book. Do not load minted or another
+% listings setup.
+%   \begin{pythoncode} ... \end{pythoncode}          displayed code
+%   \begin{pythoncode}[caption={...},label={lst:x}]   numbered listing
+%   \py{expr}                                         inline code
+\usepackage{listings}
+\definecolor{codebg}{gray}{0.96}
+\definecolor{codecomment}{gray}{0.40}
+\definecolor{codekeyword}{RGB}{0,70,140}
+\definecolor{codestring}{RGB}{120,40,0}
+\lstdefinestyle{bookcode}{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{codekeyword}\bfseries,
+  commentstyle=\color{codecomment}\itshape,
+  stringstyle=\color{codestring},
+  backgroundcolor=\color{codebg},
+  frame=none,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  breaklines=true,
+  tabsize=4,
+  xleftmargin=0.5em,
+  xrightmargin=0.5em,
+  aboveskip=0.8\baselineskip,
+  belowskip=0.8\baselineskip,
+  upquote=true,
+}
+\lstdefinestyle{pythonstyle}{
+  style=bookcode,
+  language=Python,
+  morekeywords={yield,None,True,False,lambda,nonlocal,match,case},
+}
+\lstnewenvironment{pythoncode}[1][]{\lstset{style=pythonstyle,#1}}{}
+\newcommand{\py}[1]{\lstinline[style=pythonstyle,basicstyle=\ttfamily]{#1}}
+\renewcommand{\lstlistingname}{Listing}
+
+% ---------- Theorem-like environments ----------
+% Numbered per chapter, one shared counter.
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+% proof: amsthm's \begin{proof} ... \end{proof}
+
+% ---------- Callout ----------
+% \begin{keyidea} ... \end{keyidea}  one short boxed statement of a
+% central idea. Use sparingly.
+\usepackage[most]{tcolorbox}
+\newtcolorbox{keyidea}{
+  colback=codebg, colframe=codekeyword, boxrule=0.4pt, arc=1pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  fonttitle=\bfseries, title={Key idea},
+}
+
+% ---------- Exercises ----------
+% Every substantive chapter ends with:
+%   \section{Exercises}\label{sec:<chapter-key>-exercises}
+%   \exerciselevel{1}{Foundations}
+%   \begin{exercise} ... \end{exercise}
+%   \exerciselevel{2}{Application and Reasoning}
+%   \exerciselevel{3}{Challenge}
+\newcounter{exercise}[chapter]
+\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+\newenvironment{exercise}{%
+  \refstepcounter{exercise}%
+  \par\medskip\noindent\textbf{Exercise~\theexercise.}\ }{\par}
+\newcommand{\exerciselevel}[2]{\subsection*{Level #1 -- #2}}
+
+% ---------- Cross-references ----------
+% Label prefixes: part:, chap:, sec:, def:, thm:, lem:, prop:, cor:,
+% ex:, rem:, eq:, fig:, tab:, lst:, exr:
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\crefname{exercise}{Exercise}{Exercises}
+\crefname{lstlisting}{Listing}{Listings}
+
+% =============================================================
+%  Book-specific macros
+%  Added by the scaffold unit and by writers. Keep one macro per
+%  line with a short comment, and record each one in
+%  book-plan/ledger.md.
+% =============================================================
