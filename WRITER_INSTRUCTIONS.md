@@ -161,6 +161,28 @@ Use first-person plural sparingly. Prefer direct statements such as
 "Consider the following program" over "Let us consider the following
 program."
 
+Vary sentence length. A run of sentences with the same length and
+structure reads as mechanical. Mix short statements with longer
+explanatory sentences, and do not open consecutive sentences with the
+same word or construction.
+
+Avoid vocabulary that signals generic or machine-generated prose, such
+as:
+
+-   delve
+-   tapestry
+-   realm
+-   pivotal
+-   landscape
+-   leverage
+
+Words such as *robust* or *comprehensive* are acceptable only when they
+carry a precise technical meaning that the text states or that the
+field has established.
+
+Avoid formulaic contrast constructions of the form "it is not X, it is
+Y" when no reader would have assumed X.
+
 ## Punctuation and Typography
 
 Do not use em dashes.
@@ -318,6 +340,14 @@ Do not copy source wording.
 Do not fabricate quotations, historical anecdotes, citations, theorem
 names, or references.
 
+Do not attribute claims to unnamed authorities, as in "some believe" or
+"many argue". Name the source and cite it, or remove the claim.
+
+Verify that every library, package, function, contract interface,
+compiler version, and tool named in the text or used in code exists
+with the stated name, signature, and behavior in the stated version. Do
+not rely on remembered APIs, since they change between releases.
+
 When there are multiple conventions in the literature, choose one, state
 it, and use it consistently.
 
@@ -338,4 +368,7 @@ Before considering a chapter complete, verify that:
 -   em dashes are absent;
 -   colons and double quotation marks are not overused;
 -   the prose is technical and direct;
+-   sentence length and structure vary;
+-   claims are not attributed to unnamed authorities;
+-   every named library, function, and version has been verified;
 -   the chapter does not read like a generic survey of the topic.
